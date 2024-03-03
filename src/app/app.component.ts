@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, DoCheck } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FieldService } from './field.service';
 import { AuthServiceGuard } from './auth-service.guard';
 
@@ -7,17 +7,27 @@ import { AuthServiceGuard } from './auth-service.guard';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent{
+export class AppComponent implements AfterContentChecked{
   title = 'FieldConnect';
 
   public navItems = [];
 
 constructor(private service:FieldService){
-  if(sessionStorage.getItem('currentUser'))
-  this.navItems=this.loginCommon;
-  else this.navItems=this.common;
-
+this.updateMenu();
 }
+
+
+  ngAfterContentChecked(): void {
+    this.updateMenu();
+  }
+
+  updateMenu(): void {
+    if(sessionStorage.getItem('currentUser'))
+    this.navItems=this.loginCommon;
+    else this.navItems=this.common;
+
+    
+  }
 
  
   public common: any = [
@@ -65,37 +75,7 @@ constructor(private service:FieldService){
     }
   ] 
 
-  public former:any=[
-    {
-      route: '/dashboard',
-      lable: 'Dashboard',
-    },
-    {
-      route: '/worker_list',
-      lable: 'Worker List',
-    },
-    {
-      route: '/service_list',
-      lable: 'Service List',
-    },
-    {
-      route:"/work_history",
-      lable:"Work History"
-    }
-  ]
-
-  public serviceProvider:any=[
-    {
-      route: '/dashboard',
-      lable: 'Dashboard',
-    },
-    {
-      route:"/register_service",
-      lable:"Add Service"
-    }
-    
+  
 
 
-
-  ]
 }

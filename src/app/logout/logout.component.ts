@@ -11,14 +11,12 @@ export class LogoutComponent {
 
 constructor(private route:Router,private service:FieldService){
   
-
+  if(sessionStorage.getItem("currentUser"))
+  this.service.logout();
 }
 
 login() {
-
-  this.service.logout();
-this.route.navigate(['/login'])
-
+  this.route.navigate(['/login'])
 }
 
 }

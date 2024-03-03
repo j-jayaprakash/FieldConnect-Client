@@ -20,7 +20,7 @@ import {MatListModule} from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegisterComponent } from './register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
@@ -30,6 +30,8 @@ import { ServiceListComponent } from './service-list/service-list.component';
 import { WorkerListComponent } from './worker-list/worker-list.component';
 import { WorkHistoryComponent } from './work-history/work-history.component';
 import { ServiceHistoryComponent } from './service-history/service-history.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +65,10 @@ import { ServiceHistoryComponent } from './service-history/service-history.compo
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule,
+    FormsModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class AuthServiceGuard implements CanActivate {
 
-  constructor( private router: Router) {}
+  constructor( private router: Router) {
+
+  }
+private loginStatus:any=sessionStorage.getItem("currentUser");
 
   canActivate(
     next: ActivatedRouteSnapshot,

@@ -12,7 +12,7 @@
      
     </p>
 
-    <button mat-raised-button color="primary" routerLink="/register">Get Started</button>
+    <button mat-raised-button color="primary" *ngIf="started" routerLink="/register">Get Started</button>
   </div>
 </div>
 

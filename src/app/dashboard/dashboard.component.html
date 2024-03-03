@@ -1,1 +1,62 @@
-<p>dashboard works!</p>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav>
+    <mat-nav-list *ngFor="let item of navItems">
+      <button
+        (click)="sidenav.toggle()"
+        mat-menu-item
+        [routerLink]="item['route']"
+      >
+        {{ item["lable"] }}
+      </button>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </p>
+    <mat-grid-list cols="7" rowHeight="3:1">
+      <mat-grid-tile colspan="1" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="4" [style.background]="'red'">
+            <img src="" alt="profile Image">
+     </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+
+      <mat-grid-tile colspan="1" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="1" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+   
+    </mat-grid-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

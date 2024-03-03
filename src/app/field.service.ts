@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class FieldService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private route:Router) {}
 
   private apiUrl: any = 'http://www.localhost:8888';
 
@@ -14,6 +15,7 @@ export class FieldService {
   public getUser() {
     return this.currentUser;
   }
+  
 
   public registerUser(userDto: any): Observable<any> {
     return this.http.post<any>(
@@ -25,7 +27,7 @@ export class FieldService {
   public logout(){
    
     window.sessionStorage.removeItem("currentUser");
-    window.location.reload();
+    
   }
 
   public signIn(loginDto: any):Observable<any>{
@@ -42,6 +44,7 @@ export class FieldService {
         // @ts-ignore 
         let currentUser = response['data'];
         sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+        if(sessionStorage.getItem("currentUser")) this.route.navigate(['/dashboard']);
         return currentUser;
       }
     } 

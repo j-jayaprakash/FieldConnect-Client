@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 
@@ -7,7 +7,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent  implements OnInit{
+started: boolean=true;
 
 
 constructor(private breakpointObserver: BreakpointObserver) { }
@@ -51,6 +52,10 @@ ngOnInit() {
       this.defaultRow="1:1"
     }
   });
+
+
+ if( sessionStorage.getItem("currentUser"))
+  this.started=false;
 }
 
 
