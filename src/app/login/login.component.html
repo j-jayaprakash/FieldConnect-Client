@@ -1,0 +1,16 @@
+<div style="height:100%;">
+<form [formGroup]="signInForm" class="form-signin text-center" (ngSubmit)="signIn()" novalidate>
+    <h2 class="form-signin-heading text-center">User LogIn</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" placeholder="Username" autofocus>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="Password">
+    </mat-form-field><br>
+    <button mat-raised-button color="primary" type="submit">Sign in</button>
+    <br>
+  </form>
+</div>

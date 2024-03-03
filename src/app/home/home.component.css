@@ -1,0 +1,50 @@
+ .spacer {
+    flex: 1; /* This property allows the spacer to grow and fill available space */
+  }
+  .home-img{
+    background-color: rgba(25, 54, 2, 0.534);
+    height: 300px;
+    background-image:url(/assets/images/form2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position-y: center;
+      
+}
+
+.example-card-header {
+  display: flex;
+  justify-content: center;
+}
+
+
+    .text-overlay {
+    position: absolute;
+    top: 85px; 
+    left: auto;
+        /* transform: translate(-50%, -50%); */
+    text-align: center;
+    color: white; /* Adjust text color as needed */
+  }
+
+  
+  
+  .text-overlay h1 {
+    font-size: 60px; /* Adjust font size as needed */
+  }
+  
+  .text-overlay p {
+    font-size: 15px; /* Adjust font size as needed */
+  }
+.home-header{
+    
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+    width: 50%;
+    height: 300px;
+    margin: auto;
+
+
+  }
