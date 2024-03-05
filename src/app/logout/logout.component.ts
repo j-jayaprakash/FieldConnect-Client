@@ -11,7 +11,7 @@ export class LogoutComponent {
 
 constructor(private route:Router,private service:FieldService){
   
-  if(sessionStorage.getItem("currentUser"))
+  if(localStorage.getItem("currentUser"))
   this.service.logout();
 }
 

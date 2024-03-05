@@ -25,11 +25,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterServiceComponent } from './register-service/register-service.component';
-import { ServiceListComponent } from './service-list/service-list.component';
-import { WorkerListComponent } from './worker-list/worker-list.component';
-import { WorkHistoryComponent } from './work-history/work-history.component';
-import { ServiceHistoryComponent } from './service-history/service-history.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
@@ -43,11 +38,7 @@ import {MatDividerModule} from '@angular/material/divider';
     ProfileComponent,
     LogoutComponent,
     RegisterComponent,
-    RegisterServiceComponent,
-    ServiceListComponent,
-    WorkerListComponent,
-    WorkHistoryComponent,
-    ServiceHistoryComponent
+
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { FieldService } from './../field.service';
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
@@ -11,7 +12,7 @@ export class HomeComponent  implements OnInit{
 started: boolean=true;
 
 
-constructor(private breakpointObserver: BreakpointObserver) { }
+constructor(private breakpointObserver: BreakpointObserver,private service:FieldService) { }
 
 // Default number of columns
 defaultCols = 3;
@@ -53,10 +54,12 @@ ngOnInit() {
     }
   });
 
-
- if( sessionStorage.getItem("currentUser"))
+ if( this.service.isloggedIn())
   this.started=false;
 }
+
+
+
 
 
 

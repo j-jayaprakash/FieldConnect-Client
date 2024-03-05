@@ -1,1 +1,44 @@
-<p>profile works!</p>
+<form #profile=ngForm name="profile">
+
+<mat-grid-list cols="7" rowHeight="3:1">
+    <mat-grid-tile colspan="1" rowspan="1"> </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="emailId" name="emailId">
+          </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+        <mat-form-field appearance="fill">
+            <mat-label>User Name</mat-label>
+            <input matInput [(ngModel)]="userName" name="userName">
+          </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="4" [style.background]="'red'">
+      <img src="{{profile.value}}" alt="profile Image" />
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1"> </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1"> </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1"> </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1"> </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1"> </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1"> </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1" [style.background]="'red'">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1"> </mat-grid-tile>
+  </mat-grid-list>
+
+</form>

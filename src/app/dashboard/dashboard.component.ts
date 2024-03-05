@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FieldService } from '../field.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+
+
+  public currentUser:any;
+
+  constructor(private service:FieldService){}
+
   ngOnInit(): void {
-    let curr: any = sessionStorage.getItem('currentUser');
-    let role = JSON.parse(curr)['roles'][0];
+    let currentUser: any =this.service.getUser();
+    let role =this.service.getRole();
 
     if(role=="FORMER")
     this.navItems=this.former;
@@ -18,8 +25,7 @@ export class DashboardComponent implements OnInit {
     
   }
 
-  opened: boolean = true;
-
+ 
   public navItems: [] = [];
 
   public former: any = [

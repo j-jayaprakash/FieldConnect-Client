@@ -1,4 +1,14 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { FieldService } from './field.service';
 import { AuthServiceGuard } from './auth-service.guard';
 
@@ -7,35 +17,30 @@ import { AuthServiceGuard } from './auth-service.guard';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterContentChecked{
+export class AppComponent implements AfterContentChecked {
   title = 'FieldConnect';
 
   public navItems = [];
 
-constructor(private service:FieldService){
-this.updateMenu();
-}
-
+  constructor(private service: FieldService) {
+    this.updateMenu();
+  }
 
   ngAfterContentChecked(): void {
     this.updateMenu();
   }
 
   updateMenu(): void {
-    if(sessionStorage.getItem('currentUser'))
-    this.navItems=this.loginCommon;
-    else this.navItems=this.common;
-
-    
+    if (this.service.isloggedIn()) this.navItems = this.loginCommon;
+    else this.navItems = this.common;
   }
 
- 
   public common: any = [
     {
       route: '/',
       lable: 'Home',
     },
-    {
+    { 
       route: '/about_us',
       lable: 'About Us',
     },
@@ -50,10 +55,10 @@ this.updateMenu();
     {
       route: '/login',
       lable: 'LogIn',
-    }
+    },
   ];
 
-  public loginCommon:any=[
+  public loginCommon: any = [
     {
       route: '/',
       lable: 'Home',
@@ -69,13 +74,10 @@ this.updateMenu();
     {
       route: '/profile',
       lable: 'Profile',
-    },    {
+    },
+    {
       route: '/logout',
       lable: 'Logout',
-    }
-  ] 
-
-  
-
-
+    },
+  ];
 }

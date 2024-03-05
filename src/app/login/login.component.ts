@@ -18,11 +18,7 @@ export class LoginComponent implements OnInit {
     private service: FieldService,
     private router: ActivatedRoute,
     private route: Router
-  ) {
-
-
-    
-  }
+  ) {}
 
   ngOnInit(): void {
     this.signInForm = this.fb.group({
@@ -30,15 +26,22 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
 
-    if (sessionStorage.getItem('currentUser')) {
+    if (this.service.getUser() != null) {
       this.route.navigate(['/']);
     }
   }
 
   signIn() {
     if (this.signInForm.valid) {
-      this.service.signIn(this.signInForm.value);
-      
+      this.service.signIn(this.signInForm.value).subscribe((response) => {
+        if (response['statusCode'] == 200) {
+          let currentUser = response['data'];
+          localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          if (localStorage.getItem('currentUser'))
+            this.route.navigate(['/dashboard']);
+          this.service.setUser(currentUser);
+        }
+      });
     }
   }
 }
