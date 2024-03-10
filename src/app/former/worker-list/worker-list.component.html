@@ -1,0 +1,27 @@
+<mat-card *ngFor="let workerDetails of workerDetailsList" class="card">
+    <img class="profile-img" [src]="workerDetails.personalInfo.profileImageUrl || 'placeholder.jpg'" alt="Profile Image">
+    <div class="info-item">
+        <span class="label">Email:</span> <span class="value">{{ workerDetails.personalInfo.emailId }}</span>
+    </div>
+    <div class="info-item">
+        <span class="label">Gender:</span> <span class="value">{{ workerDetails.personalInfo.gender }}</span>
+    </div>
+    <div class="info-item">
+        <span class="label">Age:</span> <span class="value">{{ workerDetails.personalInfo.age }}</span>
+    </div>
+    <div class="info-item">
+        <span class="label">Mobile:</span> <span class="value">{{ workerDetails.personalInfo.mobile }}</span>
+    </div>
+    <div class="info-item">
+        <span class="label">Address:</span>
+        <div class="value">
+            <div>Door No: {{ workerDetails.address.doorNo }}</div>
+            <div>Addr Line 1: {{ workerDetails.address.addrLine1 }}</div>
+            <div>Addr Line 2: {{ workerDetails.address.addrLine2 }}</div>
+            <div>City: {{ workerDetails.address.city }}</div>
+            <div>District: {{ workerDetails.address.district }}</div>
+            <div>State: {{ workerDetails.address.state }}</div>
+            <div>Country: {{ workerDetails.address.country }}</div>
+        </div>
+    </div>
+</mat-card>

@@ -27,6 +27,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
+import { FormerModule } from './former/former.module';
+import { WorkerModule } from './worker/worker.module';
+import { ServiceProviderModule } from './service-provider/service-provider.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +62,10 @@ import {MatDividerModule} from '@angular/material/divider';
     HttpClientModule,
     MatSidenavModule,
     FormsModule,
-    MatDividerModule
+    MatDividerModule,
+    FormerModule,
+    WorkerModule,
+    ServiceProviderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

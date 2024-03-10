@@ -1,0 +1,15 @@
+<div class="container">
+    <mat-card class="service-card card" *ngFor="let service of serviceList">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ service.serviceName }}</mat-card-title>
+        <mat-card-subtitle>{{ service.companyName }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Cost per Hour:</strong> {{ service.costPerHour }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  
+  

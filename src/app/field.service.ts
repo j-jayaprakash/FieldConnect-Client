@@ -16,6 +16,11 @@ export class FieldService {
 
   }
   private role: any;
+
+  public requestOptions = {
+    withCredentials: true 
+  }
+
   public getRole(): string {
     if (this.currentUser) {
       let roles: [] = this.currentUser['roles'];
@@ -25,7 +30,7 @@ export class FieldService {
     return this.role;
   }
 
-  private apiUrl: any = 'http://www.localhost:8888';
+  private apiUrl: any = 'http://16.171.17.209:8888';
  
   public isloggedIn() {
     if (this.currentUser != null) return true;
@@ -37,6 +42,7 @@ export class FieldService {
   }
   public setUser(user: any) {
     this.currentUser = user;
+    localStorage.setItem("currentUser",JSON.stringify(user));
   }
 
   public registerUser(userDto: any): Observable<any> {
@@ -51,6 +57,8 @@ export class FieldService {
     this.currentUser = null;
   }
 
+
+
   public signIn(loginDto: any): Observable<any> {
     const headers = new HttpHeaders({
       Authorization:
@@ -58,5 +66,28 @@ export class FieldService {
     });
 
     return this.http.get(`${this.apiUrl}`, { headers });
+  }
+
+  public registerService(serviceData:any):Observable<any>{
+    
+    return this.http.post(this.apiUrl+'/addService',serviceData,this.requestOptions);
+  }
+
+
+  public getWorkerList():Observable<any>{
+
+    return this.http.get(this.apiUrl+"/workerlist",this.requestOptions)
+  }
+
+  
+  public getServiceList():Observable<any>{
+
+    return this.http.get(this.apiUrl+"/servicelist",this.requestOptions)
+  }
+
+
+  public bookServiceOrWorker(book:any):Observable<any>{
+
+    return this.http.post(this.apiUrl+"/bookWorkerOrService",book,this.requestOptions)
   }
 }

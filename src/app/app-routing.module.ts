@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthServiceGuard } from './auth-service.guard';
 
+
 const routes: Routes = [
   {
     path:"login",
@@ -43,6 +44,18 @@ const routes: Routes = [
     path:"profile",
     component:ProfileComponent
   },
+  {
+    path:"former",
+    loadChildren:()=>import('./former/former.module').then(m=>m.FormerModule)
+  },
+  {
+    path:"worker",
+    loadChildren:()=>import('./worker/worker.module').then(m=>m.WorkerModule)
+  },
+  {
+    path:"service_provider",
+    loadChildren:()=>import('./service-provider/service-provider.module').then(m=>m.ServiceProviderModule)
+  }
 ];
 
 @NgModule({

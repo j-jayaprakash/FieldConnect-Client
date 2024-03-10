@@ -1,0 +1,33 @@
+<p class="display-3 text-center">Register Your Service</p>
+
+<div class="row text-center">
+
+    <div class="container">
+
+        <form [formGroup]="service">
+
+            <mat-form-field appearance="fill">
+                <input placeholder="Company Name" matInput formControlName="companyName">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <input placeholder="Service Name" matInput formControlName="serviceName">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <input placeholder="Cost Per Hour" matInput formControlName="costPerHour">
+
+            </mat-form-field>
+            <br>
+
+            <button class="btn btn-danger" [routerLink]="['/dashboard']" >
+                Cancel
+            </button>
+            <button (click)="addService()" class="btn btn-primary">
+                Submit
+            </button>
+        </form>
+
+
+    </div>
+</div>

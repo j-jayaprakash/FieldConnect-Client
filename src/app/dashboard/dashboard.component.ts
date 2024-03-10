@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FieldService } from '../field.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   public currentUser:any;
 
-  constructor(private service:FieldService){}
+  constructor(private service:FieldService,private router:Router){}
 
   ngOnInit(): void {
     let currentUser: any =this.service.getUser();
@@ -21,7 +22,7 @@ export class DashboardComponent implements OnInit {
     this.navItems=this.former;
     else if(role=="SERVICE_PROVIDER")
     this.navItems=this.serviceProvider
-    else ;
+    else this.navItems=this.worker ;
     
   }
 
@@ -29,9 +30,10 @@ export class DashboardComponent implements OnInit {
   public navItems: [] = [];
 
   public former: any = [
+
     {
-      route: '/dashboard',
-      lable: 'Dashboard',
+      route:'/book_service',
+      lable:'Book Service'
     },
     {
       route: '/worker_list',
@@ -49,12 +51,29 @@ export class DashboardComponent implements OnInit {
 
   public serviceProvider: any = [
     {
-      route: '/dashboard',
-      lable: 'Dashboard',
-    },
-    {
       route: '/register_service',
       lable: 'Add Service',
     },
+    {
+      route: '/my_services',
+      lable: 'My Services',
+    },
+    {
+      route: '/service_history',
+      lable: 'Service History',
+    },
   ];
+
+
+  public worker:any=[
+    {
+      route:'/work_history',
+      lable:'Work History'
+    },
+    {
+      route:'/change_status',
+      lable:'Change Status'
+    }
+    
+  ]
 }

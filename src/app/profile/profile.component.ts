@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   this. mobile=this.user.personalInfo.mobile;
   this. gender=this.user.personalInfo.gender;
   this. age=this.user.personalInfo.age;
-  this. profile=JSON.stringify(this.user.personalInfo.profileImageUrl);
+  this. profile=this.user.personalInfo.profileImageUrl?this.user.personalInfo.profileImageUrl:'../../assets/images/user.png';
   this. doorNo=this.user.address.doorNo;
   this. ad1=this.user.address.addrLine1;
   this. ad2=this.user.address.addrLine2;
@@ -34,13 +34,15 @@ export class ProfileComponent implements OnInit {
   this. state=this.user.address.state;
   this. country=this.user.address.country;
 
+
+  let profileUrl:string=this.profile?this.profile:'../../assets/images/user.png';
     console.log(this.profile)
 
   }
   
   public currentUser:any;
   public user:any;
-  
+  private url:any=''
 
   public userName:string;
   public role:string;
@@ -48,7 +50,7 @@ export class ProfileComponent implements OnInit {
   public mobile:string;
   public gender:string;
   public age:string;
-  public profile:string;
+  public profile:string='';
   public doorNo:string;
   public ad1:string;
   public ad2:string;
@@ -57,6 +59,7 @@ export class ProfileComponent implements OnInit {
   public state:string;
   public country:String;
 
+  public profileUrl:string=this.profile?this.profile:'../../assets/images/user.png';
 
   ngOnInit(): void {
   }

@@ -10,7 +10,7 @@
     </button>
     <mat-menu #menu="matMenu">
       <mat-nav-list *ngFor="let item of navItems">
-        <button  mat-menu-item [routerLink]="item['route']">
+        <button mat-menu-item [routerLink]="item['route']">
           {{ item["lable"] }}
         </button>
       </mat-nav-list>
@@ -18,15 +18,15 @@
   </div>
 
   <!-- Display nav items for larger screens -->
-  <div fxHide.lt-md="true"  *ngFor="let item of navItems">
-      <button class="text-light" mat-menu-item [routerLink]="item['route']">
-        {{ item["lable"] }}
-      </button>
- 
+  <div fxHide.lt-md="true" *ngFor="let item of navItems">
+    <button class="text-light" mat-menu-item [routerLink]="item['route']">
+      {{ item["lable"] }}
+    </button>
+
   </div>
 </mat-toolbar>
-
-<router-outlet></router-outlet>
+<router-outlet>
+</router-outlet>
 
 <!-- app-footer.component.html -->
 <mat-toolbar color="primary">

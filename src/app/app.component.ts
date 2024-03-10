@@ -79,5 +79,9 @@ export class AppComponent implements AfterContentChecked {
       route: '/logout',
       lable: 'Logout',
     },
+    {
+      route:'/dashboard',
+      lable:'Dashboard'
+    }
   ];
 }

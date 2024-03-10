@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FieldService } from '../field.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { FieldService } from '../field.service';
 export class RegisterComponent {
   userForm: any = '';
 
-  constructor(private fb: FormBuilder, private service: FieldService) {}
+  constructor(private fb: FormBuilder, private service: FieldService,private router:Router) {}
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
@@ -37,12 +38,17 @@ export class RegisterComponent {
   }
 
   onSubmit() {
-    console.log(this.userForm);
+   
     if (this.userForm.valid) {
       let res = this.service
         .registerUser(this.userForm.value)
         .subscribe((response) => {
-          console.log(response);
+          
+          if(response.statusCode==200) {
+            this.router.navigate(["dashboard"])
+            this.service.setUser(response.data);
+          }
+
         });
     }
   }
